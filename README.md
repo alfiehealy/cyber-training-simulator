@@ -37,3 +37,24 @@ pip install customtkinter
 
 # 3) Run
 python main.py
+
+---
+
+## 📸 Screenshots
+
+Here’s a look at the app in action:
+
+### Start Screen
+![Start Screen](docs/screens/start.png)
+
+### Scenario Example
+![Scenario Screen](docs/screens/scenario.png)
+
+### Feedback Modal
+![Feedback Modal](docs/screens/feedback.png)
+
+### Summary & Analytics
+![Summary Screen](docs/screens/summary.png)
+
+### Badges
+![Badges Screen](docs/screens/badges.png)
