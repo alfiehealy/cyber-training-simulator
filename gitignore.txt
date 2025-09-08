@@ -1,0 +1,24 @@
+# Virtual env
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# App data (generated at runtime)
+data/leaderboard.json
+data/profile.json
+data/settings.json
+data/backups/
+data/screens/
+data/reports/*.md
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

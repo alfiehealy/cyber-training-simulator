@@ -1,0 +1,17 @@
+{
+  "difficulty": "medium",
+  "timer_enabled": true,
+  "round_seconds": 45,
+  "penalties_enabled": true,
+  "hints_enabled": true,
+  "sound_enabled": false,
+  "high_contrast": true,
+  "font_scale": 100,
+  "unsafe_penalty": -25,
+  "base_correct": 100,
+  "base_partial": 50,
+  "skip_penalty": -10,
+  "hint_cost": -5,
+  "appearance": "Dark",
+  "accent": "green"
+}

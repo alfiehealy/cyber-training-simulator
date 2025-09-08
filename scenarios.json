@@ -1,0 +1,717 @@
+[
+  {
+    "id": "phish-invoice",
+    "title": "Suspicious Invoice",
+    "category": "Phishing",
+    "difficulty": "easy",
+    "narrative": "Email from 'acc0unts-pay.co' with urgent invoice and ZIP attachment.",
+    "choices": [
+      {
+        "label": "Report as phishing; do not open; alert security.",
+        "weight": 100
+      },
+      {
+        "label": "Open the ZIP to verify.",
+        "weight": 0
+      },
+      {
+        "label": "Reply asking for bank details.",
+        "weight": 0
+      },
+      {
+        "label": "Forward to a colleague.",
+        "weight": 0
+      }
+    ],
+    "correct_indexes": [
+      0
+    ],
+    "partial_indexes": [],
+    "unsafe_penalty": -25,
+    "hint": "Urgency + odd domain + attachment = phish.",
+    "feedback_why": "Suspicious domain and ZIP indicate phishing. Opening risks malware.",
+    "pro_tip": "Verify via known channels; never open unknown attachments.",
+    "references": [
+      "NCSC phishing guidance",
+      "Company policy: report phishing"
+    ]
+  },
+  {
+    "id": "weak-password",
+    "title": "Password Reset Choice",
+    "category": "Passwords",
+    "difficulty": "easy",
+    "narrative": "Choose a new password: 'Summer2025!' or a long unique passphrase in a manager.",
+    "choices": [
+      {
+        "label": "Use a long passphrase in a password manager.",
+        "weight": 100
+      },
+      {
+        "label": "Use Summer2025!",
+        "weight": 0
+      },
+      {
+        "label": "Re-use old strong password",
+        "weight": 0
+      }
+    ],
+    "correct_indexes": [
+      0
+    ],
+    "partial_indexes": [],
+    "unsafe_penalty": -25,
+    "hint": "Length + uniqueness beat complexity tricks.",
+    "feedback_why": "Passphrases are stronger and easier to remember when unique.",
+    "pro_tip": "Use a manager and MFA.",
+    "references": [
+      "NCSC three random words"
+    ]
+  },
+  {
+    "id": "open-port",
+    "title": "Dev Server on Caf\u00e9 Wi\u2011Fi",
+    "category": "Network",
+    "difficulty": "medium",
+    "narrative": "Local app listens on 0.0.0.0:5000; a friend can access it on caf\u00e9 Wi\u2011Fi.",
+    "choices": [
+      {
+        "label": "Bind to 127.0.0.1 or stop; use VPN/bastion if needed.",
+        "weight": 100
+      },
+      {
+        "label": "Leave it; it's a dev box.",
+        "weight": 0
+      },
+      {
+        "label": "Ask caf\u00e9 to block port.",
+        "weight": 50
+      }
+    ],
+    "correct_indexes": [
+      0
+    ],
+    "partial_indexes": [
+      2
+    ],
+    "unsafe_penalty": -25,
+    "hint": "0.0.0.0 exposes all interfaces.",
+    "feedback_why": "Binding to all interfaces exposes service.",
+    "pro_tip": "Use loopback and least-privilege networking.",
+    "references": [
+      "OWASP secure dev"
+    ]
+  },
+  {
+    "id": "usb-drop",
+    "title": "USB Drop in Car Park",
+    "category": "Physical",
+    "difficulty": "medium",
+    "narrative": "You find a USB labeled 'Payroll Q3' near the door.",
+    "choices": [
+      {
+        "label": "Do not plug in; hand to security/IT for analysis.",
+        "weight": 100
+      },
+      {
+        "label": "Check it on a spare PC.",
+        "weight": 0
+      },
+      {
+        "label": "Take home and check later.",
+        "weight": 0
+      }
+    ],
+    "correct_indexes": [
+      0
+    ],
+    "partial_indexes": [],
+    "unsafe_penalty": -25,
+    "hint": "USBs can deliver malware via autorun/exploits.",
+    "feedback_why": "Unknown media is a common infection vector.",
+    "pro_tip": "Only use approved media.",
+    "references": [
+      "NIST media protection"
+    ]
+  },
+  {
+    "id": "tailgating",
+    "title": "Tailgating at Entrance",
+    "category": "Physical",
+    "difficulty": "easy",
+    "narrative": "A stranger follows you into a badge-access area carrying boxes.",
+    "choices": [
+      {
+        "label": "Politely stop them and ask to badge in separately.",
+        "weight": 100
+      },
+      {
+        "label": "Hold door\u2014looks busy.",
+        "weight": 0
+      },
+      {
+        "label": "Assume they're staff.",
+        "weight": 0
+      }
+    ],
+    "correct_indexes": [
+      0
+    ],
+    "partial_indexes": [],
+    "unsafe_penalty": -25,
+    "hint": "Trust but verify.",
+    "feedback_why": "Tailgating bypasses access controls.",
+    "pro_tip": "Everyone badges in.",
+    "references": [
+      "Zero trust physical"
+    ]
+  },
+  {
+    "id": "vishing-otp",
+    "title": "Vishing for OTP",
+    "category": "Social Engineering",
+    "difficulty": "medium",
+    "narrative": "'IT support' calls asking for your MFA one-time code to fix your account.",
+    "choices": [
+      {
+        "label": "Refuse; report the call; verify via official channel.",
+        "weight": 100
+      },
+      {
+        "label": "Provide code quickly to restore access.",
+        "weight": 0
+      },
+      {
+        "label": "Ask them to email and then send the code.",
+        "weight": 0
+      }
+    ],
+    "correct_indexes": [
+      0
+    ],
+    "partial_indexes": [],
+    "unsafe_penalty": -25,
+    "hint": "IT never asks for OTP.",
+    "feedback_why": "MFA codes are secrets; sharing defeats protection.",
+    "pro_tip": "Call back using known helpdesk number.",
+    "references": [
+      "NCSC vishing"
+    ]
+  },
+  {
+    "id": "postpone-updates",
+    "title": "Outdated Software Before Travel",
+    "category": "Patching/MFA",
+    "difficulty": "medium",
+    "narrative": "You're about to travel; updates pending. You consider postponing for a week.",
+    "choices": [
+      {
+        "label": "Update now and reboot; plan buffer time.",
+        "weight": 100
+      },
+      {
+        "label": "Delay for a week.",
+        "weight": 0
+      },
+      {
+        "label": "Disable updates until return.",
+        "weight": 0
+      }
+    ],
+    "correct_indexes": [
+      0
+    ],
+    "partial_indexes": [],
+    "unsafe_penalty": -25,
+    "hint": "Known vulnerabilities get exploited fast.",
+    "feedback_why": "Delays extend exposure window.",
+    "pro_tip": "Enable auto-updates.",
+    "references": [
+      "Patch management"
+    ]
+  },
+  {
+    "id": "mfa-fatigue",
+    "title": "MFA Fatigue at 11pm",
+    "category": "Patching/MFA",
+    "difficulty": "medium",
+    "narrative": "You receive repeated MFA prompts late at night you didn't initiate.",
+    "choices": [
+      {
+        "label": "Deny; change password; report to security.",
+        "weight": 100
+      },
+      {
+        "label": "Approve to stop popups.",
+        "weight": 0
+      },
+      {
+        "label": "Ignore and sleep.",
+        "weight": 0
+      }
+    ],
+    "correct_indexes": [
+      0
+    ],
+    "partial_indexes": [],
+    "unsafe_penalty": -25,
+    "hint": "Repeated prompts often mean account attack.",
+    "feedback_why": "Approving grants attackers access.",
+    "pro_tip": "Use number matching if available.",
+    "references": [
+      "MFA fatigue"
+    ]
+  },
+  {
+    "id": "public-wifi",
+    "title": "Captive Portal Wants Corporate Creds",
+    "category": "Network",
+    "difficulty": "easy",
+    "narrative": "Hotel Wi\u2011Fi captive portal requests your corporate username/password.",
+    "choices": [
+      {
+        "label": "Do not enter; use guest access/VPN; report.",
+        "weight": 100
+      },
+      {
+        "label": "Enter creds\u2014likely required.",
+        "weight": 0
+      },
+      {
+        "label": "Try once to see if it works.",
+        "weight": 0
+      }
+    ],
+    "correct_indexes": [
+      0
+    ],
+    "partial_indexes": [],
+    "unsafe_penalty": -25,
+    "hint": "Captive portals shouldn't ask for corporate creds.",
+    "feedback_why": "Phishing via captive portal.",
+    "pro_tip": "Use VPN after joining.",
+    "references": [
+      "NCSC Wi\u2011Fi"
+    ]
+  },
+  {
+    "id": "data-handling",
+    "title": "Upload Customer CSV to Unapproved Cloud",
+    "category": "Phishing",
+    "difficulty": "medium",
+    "narrative": "A partner asks you to upload customer CSV to their personal Dropbox.",
+    "choices": [
+      {
+        "label": "Decline; use approved secure transfer channel.",
+        "weight": 100
+      },
+      {
+        "label": "Do it quickly; data is needed.",
+        "weight": 0
+      },
+      {
+        "label": "Split into parts to reduce risk.",
+        "weight": 0
+      }
+    ],
+    "correct_indexes": [
+      0
+    ],
+    "partial_indexes": [],
+    "unsafe_penalty": -25,
+    "hint": "Use approved tools for PII.",
+    "feedback_why": "Unapproved cloud may breach policy.",
+    "pro_tip": "Use sanctioned platforms.",
+    "references": [
+      "Data handling policy"
+    ]
+  },
+  {
+    "id": "rdp-exposure",
+    "title": "RDP Exposed at Home Lab",
+    "category": "Network",
+    "difficulty": "hard",
+    "narrative": "Your home router forwards 3389 to a lab PC for convenience.",
+    "choices": [
+      {
+        "label": "Close port; use VPN/bastion; enable MFA.",
+        "weight": 100
+      },
+      {
+        "label": "Keep open with NLA only.",
+        "weight": 50
+      },
+      {
+        "label": "It's fine; not work.",
+        "weight": 0
+      }
+    ],
+    "correct_indexes": [
+      0
+    ],
+    "partial_indexes": [
+      1
+    ],
+    "unsafe_penalty": -25,
+    "hint": "Public RDP is high risk.",
+    "feedback_why": "RDP targeting is widespread.",
+    "pro_tip": "Never expose RDP to internet.",
+    "references": [
+      "CISA RDP guidance"
+    ]
+  },
+  {
+    "id": "code-secrets",
+    "title": "Hardcoded API Key",
+    "category": "Phishing",
+    "difficulty": "hard",
+    "narrative": "You notice an API key committed to a public repo.",
+    "choices": [
+      {
+        "label": "Rotate key; remove from history; add secrets scanning.",
+        "weight": 100
+      },
+      {
+        "label": "Delete file and force push.",
+        "weight": 0
+      },
+      {
+        "label": "Keep; unlikely to be found.",
+        "weight": 0
+      }
+    ],
+    "correct_indexes": [
+      0
+    ],
+    "partial_indexes": [],
+    "unsafe_penalty": -25,
+    "hint": "Assume secret is compromised once committed.",
+    "feedback_why": "Public exposure requires rotation.",
+    "pro_tip": "Use env vars/secret managers.",
+    "references": [
+      "OWASP secrets"
+    ]
+  },
+  {
+    "id": "privacy-screens",
+    "title": "Sharing Screenshots with PII",
+    "category": "Phishing",
+    "difficulty": "easy",
+    "narrative": "You paste a screenshot to chat that includes customer email/phone.",
+    "choices": [
+      {
+        "label": "Redact or mask PII before sharing.",
+        "weight": 100
+      },
+      {
+        "label": "Share as-is within team.",
+        "weight": 0
+      },
+      {
+        "label": "Delete after sending.",
+        "weight": 0
+      }
+    ],
+    "correct_indexes": [
+      0
+    ],
+    "partial_indexes": [],
+    "unsafe_penalty": -25,
+    "hint": "PII must be minimised.",
+    "feedback_why": "Unredacted PII increases exposure.",
+    "pro_tip": "Use redaction tools.",
+    "references": [
+      "GDPR basics"
+    ]
+  },
+  {
+    "id": "device-loss",
+    "title": "Laptop Left in Taxi",
+    "category": "Physical",
+    "difficulty": "medium",
+    "narrative": "You realise your work laptop might be left in a taxi.",
+    "choices": [
+      {
+        "label": "Report immediately; remote lock/wipe; change passwords.",
+        "weight": 100
+      },
+      {
+        "label": "Wait to see if driver returns it.",
+        "weight": 0
+      },
+      {
+        "label": "Only report if confirmed lost.",
+        "weight": 0
+      }
+    ],
+    "correct_indexes": [
+      0
+    ],
+    "partial_indexes": [],
+    "unsafe_penalty": -25,
+    "hint": "Time matters for incident response.",
+    "feedback_why": "Quick reporting reduces risk.",
+    "pro_tip": "Ensure full-disk encryption.",
+    "references": [
+      "NCSC device loss"
+    ]
+  },
+  {
+    "id": "qr-phish",
+    "title": "QR Sticker on Menu",
+    "category": "Phishing",
+    "difficulty": "easy",
+    "narrative": "A QR sticker is placed over a restaurant's menu QR.",
+    "choices": [
+      {
+        "label": "Avoid scanning; use official menu or verify URL.",
+        "weight": 100
+      },
+      {
+        "label": "Scan; it's a menu.",
+        "weight": 0
+      },
+      {
+        "label": "Scan but don't click anything.",
+        "weight": 0
+      }
+    ],
+    "correct_indexes": [
+      0
+    ],
+    "partial_indexes": [],
+    "unsafe_penalty": -25,
+    "hint": "QRs can redirect to phishing.",
+    "feedback_why": "Malicious QR codes are common.",
+    "pro_tip": "Type known URLs instead.",
+    "references": [
+      "QR phishing"
+    ]
+  },
+  {
+    "id": "slack-impersonation",
+    "title": "CFO Gift Card Request",
+    "category": "Social Engineering",
+    "difficulty": "medium",
+    "narrative": "Message from 'CFO' on chat asks for urgent gift cards; says they're in a meeting.",
+    "choices": [
+      {
+        "label": "Verify out-of-band; report impersonation; do not buy.",
+        "weight": 100
+      },
+      {
+        "label": "Buy cards; send codes quickly.",
+        "weight": 0
+      },
+      {
+        "label": "Ask for reimbursement first.",
+        "weight": 0
+      }
+    ],
+    "correct_indexes": [
+      0
+    ],
+    "partial_indexes": [],
+    "unsafe_penalty": -25,
+    "hint": "Gift card scams use urgency + authority.",
+    "feedback_why": "Impersonation common on chat/email.",
+    "pro_tip": "Use known contact to verify.",
+    "references": [
+      "BEC guidance"
+    ]
+  },
+  {
+    "id": "shadow-ext",
+    "title": "Unapproved Browser Extension",
+    "category": "Patching/MFA",
+    "difficulty": "medium",
+    "narrative": "A colleague asks you to install a 'time saver' Chrome extension that isn't on the approved list.",
+    "choices": [
+      {
+        "label": "Decline; request it through approval; offer alternatives.",
+        "weight": 100
+      },
+      {
+        "label": "Install\u2014it only needs basic permissions.",
+        "weight": 0
+      },
+      {
+        "label": "Install in a separate profile.",
+        "weight": 0
+      }
+    ],
+    "correct_indexes": [
+      0
+    ],
+    "partial_indexes": [
+      2
+    ],
+    "unsafe_penalty": -25,
+    "hint": "Shadow IT can exfiltrate data via extensions.",
+    "feedback_why": "Unvetted extensions can read and send data from pages you visit.",
+    "pro_tip": "Use only approved extensions via the admin catalog.",
+    "references": [
+      "NCSC Shadow IT"
+    ]
+  },
+  {
+    "id": "shoulder-surf",
+    "title": "Shoulder Surfing at Caf\u00e9",
+    "category": "Physical",
+    "difficulty": "easy",
+    "narrative": "You're working on customer data at a caf\u00e9; the table behind you has a clear view.",
+    "choices": [
+      {
+        "label": "Reposition screen / use privacy filter; avoid PII in public.",
+        "weight": 100
+      },
+      {
+        "label": "Continue; no names visible.",
+        "weight": 0
+      },
+      {
+        "label": "Move to corner but keep screen open.",
+        "weight": 0
+      }
+    ],
+    "correct_indexes": [
+      0
+    ],
+    "partial_indexes": [],
+    "unsafe_penalty": -25,
+    "hint": "Privacy screens reduce visibility angles.",
+    "feedback_why": "Public spaces increase risk of data exposure.",
+    "pro_tip": "Use privacy filters and avoid PII in public places.",
+    "references": [
+      "Privacy screens best practices"
+    ]
+  },
+  {
+    "id": "prompt-injection",
+    "title": "AI Prompt Injection",
+    "category": "Phishing",
+    "difficulty": "hard",
+    "narrative": "A webpage includes 'ignore previous instructions' text that your internal assistant might process when copying content.",
+    "choices": [
+      {
+        "label": "Treat page content as untrusted; sanitize before feeding tools.",
+        "weight": 100
+      },
+      {
+        "label": "Paste everything; the assistant is safe.",
+        "weight": 0
+      },
+      {
+        "label": "Disable the assistant entirely.",
+        "weight": 0
+      }
+    ],
+    "correct_indexes": [
+      0
+    ],
+    "partial_indexes": [],
+    "unsafe_penalty": -25,
+    "hint": "Untrusted inputs can steer assistants.",
+    "feedback_why": "Prompt injection can cause data exfiltration or unsafe actions.",
+    "pro_tip": "Sanitize inputs and restrict tools / data access.",
+    "references": [
+      "OWASP LLM Top 10"
+    ]
+  },
+  {
+    "id": "byod-nopin",
+    "title": "BYOD No Screen Lock",
+    "category": "Physical",
+    "difficulty": "medium",
+    "narrative": "A teammate uses personal phone for email without a screen lock.",
+    "choices": [
+      {
+        "label": "Enforce device policy: PIN/biometrics + remote wipe.",
+        "weight": 100
+      },
+      {
+        "label": "Allow if they don't lose it.",
+        "weight": 0
+      },
+      {
+        "label": "Suggest longer email password instead.",
+        "weight": 0
+      }
+    ],
+    "correct_indexes": [
+      0
+    ],
+    "partial_indexes": [],
+    "unsafe_penalty": -25,
+    "hint": "Device lock is first line of defense.",
+    "feedback_why": "Compromised device gives email access.",
+    "pro_tip": "Require MDM and screen lock for BYOD.",
+    "references": [
+      "Mobile device policy"
+    ]
+  },
+  {
+    "id": "no-review-prod",
+    "title": "Push to Prod without Review",
+    "category": "Network",
+    "difficulty": "hard",
+    "narrative": "Hotfix is urgent. A senior says to push straight to prod and review later.",
+    "choices": [
+      {
+        "label": "Require minimal peer review/approval; use feature flags/rollback.",
+        "weight": 100
+      },
+      {
+        "label": "Push now; test in prod.",
+        "weight": 0
+      },
+      {
+        "label": "Delay for a week until full review.",
+        "weight": 0
+      }
+    ],
+    "correct_indexes": [
+      0
+    ],
+    "partial_indexes": [],
+    "unsafe_penalty": -25,
+    "hint": "Fast \u2260 unreviewed. Use light but real checks.",
+    "feedback_why": "Change control reduces risk.",
+    "pro_tip": "Keep change windows, approvals, and rollback plans.",
+    "references": [
+      "Change management"
+    ]
+  },
+  {
+    "id": "vpn-split-tunnel",
+    "title": "Split Tunneling Debate",
+    "category": "Network",
+    "difficulty": "medium",
+    "narrative": "To improve call quality, someone proposes split tunneling corporate VPN.",
+    "choices": [
+      {
+        "label": "Allow only for non-sensitive traffic with policy/monitoring.",
+        "weight": 100
+      },
+      {
+        "label": "Disable VPN entirely during calls.",
+        "weight": 0
+      },
+      {
+        "label": "Allow split for everything to speed things up.",
+        "weight": 0
+      }
+    ],
+    "correct_indexes": [
+      0
+    ],
+    "partial_indexes": [],
+    "unsafe_penalty": -25,
+    "hint": "Risk-based allowances can work with controls.",
+    "feedback_why": "Full split can bypass protections.",
+    "pro_tip": "Use app-based split with strict rules and monitoring.",
+    "references": [
+      "VPN guidance"
+    ]
+  }
+]
